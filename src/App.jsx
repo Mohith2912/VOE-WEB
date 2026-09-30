@@ -7,15 +7,20 @@ import Programs from './components/Programs.jsx'
 import Events from './components/Events.jsx'
 import People from './components/People.jsx'
 import ContactFooter from './components/ContactFooter.jsx'
+import ScrollProgress from './components/ScrollProgress.jsx'
+import { useScrollReveal } from './hooks/useScrollReveal.js'
 
 function App() {
   const [showIntro, setShowIntro] = useState(() => window.sessionStorage.getItem('voe-intro-seen') !== 'true')
+  useScrollReveal()
 
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       {showIntro && <IntroGateway onComplete={() => setShowIntro(false)} />}
+      <ScrollProgress />
       <Navigation />
-      <main>
+      <main id="main-content">
         <Hero />
         <Manifesto />
         <Programs />
