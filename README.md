@@ -28,3 +28,5 @@ npm run build
 ## Deployment
 
 The project is configured for Vercel as a Vite single-page application. All routes rewrite to `index.html`, while static media and brand assets are served from `public`.
+
+Production: [voe-signal-studio.vercel.app](https://voe-signal-studio.vercel.app)
