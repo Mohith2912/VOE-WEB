@@ -115,16 +115,16 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--acid); outline-
 
 @media (max-width: 900px) {
   .nav-shell { top: 10px; left: 10px; right: 10px; }
-  .menu-toggle { display: grid; }
+  .menu-toggle { position: absolute; top: 8px; right: 8px; display: grid !important; }
   .main-nav { position: absolute; top: calc(100% + 8px); left: 0; right: 0; display: none; padding: 24px; align-items: stretch; flex-direction: column; background: #111117; border: 1px solid rgba(247,245,237,.25); }
   .main-nav.is-open { display: flex; }
-  .main-nav > a { padding: 12px 0; }
+  .main-nav > a { min-height: 48px; display: flex; align-items: center; padding: 12px 0; }
   .nav-cta { padding-inline: 16px !important; }
   .hero { grid-template-columns: 1fr; align-content: center; padding-top: 150px; padding-bottom: 150px; }
   .hero-status { display: none; }
-  .hero-copy { z-index: 3; }
+  .hero-copy { z-index: 3; min-width: 0; max-width: 100%; }
   .hero h1 { font-size: clamp(4rem, 16vw, 7.5rem); }
-  .hero-deck, .hero-actions { margin-left: 0; }
+  .hero-deck, .hero-actions { max-width: 100%; margin-left: 0; }
   .hero-orbit { position: absolute; right: -18vw; top: 22%; width: 60vw; opacity: .38; }
   .hero-meta { left: 24px; right: 24px; justify-content: flex-end; }
 }
@@ -196,7 +196,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--acid); outline-
 .footer-socials a:hover { color: var(--ink); background: var(--acid); border-color: var(--acid); }
 .footer-socials svg { width: 16px; }
 .back-top { width: 54px; height: 54px; display: grid; place-items: center; color: var(--ink); background: var(--acid); }
-.footer-bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; padding-top: 26px; border-top: 1px solid rgba(247,245,237,.2); color: rgba(247,245,237,.45); font: 500 9px/1 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; }
+.footer-bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; padding-top: 26px; border-top: 1px solid rgba(247,245,237,.2); color: rgba(247,245,237,.62); font: 500 9px/1 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; }
 
 @media (max-width: 900px) {
   .people-heading { flex-direction: column; }
