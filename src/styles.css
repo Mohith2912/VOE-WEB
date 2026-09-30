@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #f7f5ed;
+  background: #0b0b0f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #0b0b0f;
+  --paper: #f7f5ed;
+  --acid: #d8ff3e;
+  --violet: #a978ff;
+  --gold: #ffbd4a;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, a { font: inherit; }
+
+.site-shell {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+  background:
+    linear-gradient(rgba(216, 255, 62, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 255, 62, .08) 1px, transparent 1px),
+    var(--ink);
+  background-size: 48px 48px;
+}
+
+.eyebrow { color: var(--acid); font: 500 .75rem/1 'DM Mono', monospace; letter-spacing: .18em; }
+h1 { max-width: 10ch; margin: .5rem 0; font-size: clamp(4rem, 12vw, 10rem); line-height: .82; letter-spacing: -.07em; }
+
