@@ -5,6 +5,8 @@ import Hero from './components/Hero.jsx'
 import Manifesto from './components/Manifesto.jsx'
 import Programs from './components/Programs.jsx'
 import Events from './components/Events.jsx'
+import People from './components/People.jsx'
+import ContactFooter from './components/ContactFooter.jsx'
 
 function App() {
   const [showIntro, setShowIntro] = useState(() => window.sessionStorage.getItem('voe-intro-seen') !== 'true')
@@ -18,6 +20,8 @@ function App() {
         <Manifesto />
         <Programs />
         <Events />
+        <People />
+        <ContactFooter />
       </main>
     </>
   )

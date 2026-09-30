@@ -13,3 +13,17 @@ export const events = [
   { number: '003', type: 'Conversation', title: 'Beyond the Brief', description: 'Creative alumni talk honestly about work, doubt and finding a voice.', status: 'Season 01' },
 ]
 
+export const leadership = [
+  { role: 'Faculty in-charge', name: 'Anandhi', department: 'EEC' },
+  { role: 'President', name: 'Gurusamy', department: 'ECE' },
+  { role: 'Vice president', name: 'Sai Nandhitha', department: 'CSE' },
+]
+
+export const crews = [
+  { name: 'Content', leads: 'Sai Sivani K', members: 'Raagini · Kanika · Thiviya · Sambhavi · Mitra · Praveena' },
+  { name: 'Direction & Editing', leads: 'Harish Balaji · Raghav G S', members: 'Nitheesh · Aishwarya · Hariharan · Sathvika · Pranavi · Sahana · Ferinand' },
+  { name: 'Campus Outreach', leads: 'Prathyum S · Pritika KK', members: 'Priyavagulaa · Aparajitha · Nitish Kumar · Rubinaath · Jai Harini · Akshaya' },
+  { name: 'Event Management', leads: 'Lenya', members: 'Ananya · Sujita · Harini · Priyanka · Raghul' },
+  { name: 'Technical', leads: 'Rehan J', members: 'Ranjithan · Rohith · Mohith Dharshan · Sahhana · Pranitha' },
+]
+
