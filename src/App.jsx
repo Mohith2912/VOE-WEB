@@ -1,48 +1,32 @@
-import { useEffect, useState } from 'react'
-import IntroGateway from './components/IntroGateway.jsx'
-import Navigation from './components/Navigation.jsx'
-import Hero from './components/Hero.jsx'
-import Manifesto from './components/Manifesto.jsx'
-import Programs from './components/Programs.jsx'
-import Events from './components/Events.jsx'
-import People from './components/People.jsx'
-import ContactFooter from './components/ContactFooter.jsx'
-import ScrollProgress from './components/ScrollProgress.jsx'
-import { useScrollReveal } from './hooks/useScrollReveal.js'
+import { lazy, Suspense } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import SiteLayout from './layout/SiteLayout.jsx'
+
+const HomePage = lazy(() => import('./pages/HomePage.jsx'))
+const AboutPage = lazy(() => import('./pages/AboutPage.jsx'))
+const WingsPage = lazy(() => import('./pages/WingsPage.jsx'))
+const EventsPage = lazy(() => import('./pages/EventsPage.jsx'))
+const TeamPage = lazy(() => import('./pages/TeamPage.jsx'))
+const JoinPage = lazy(() => import('./pages/JoinPage.jsx'))
+const ContactPage = lazy(() => import('./pages/ContactPage.jsx'))
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'))
 
 function App() {
-  const [showIntro, setShowIntro] = useState(() => {
-    const previewSkipsIntro = new URLSearchParams(window.location.search).has('skipIntro')
-    return !previewSkipsIntro && window.sessionStorage.getItem('voe-intro-seen') !== 'true'
-  })
-  useScrollReveal()
-
-  useEffect(() => {
-    const sectionId = window.location.hash.slice(1)
-    if (!sectionId) return undefined
-    const frame = window.requestAnimationFrame(() => {
-      const section = document.getElementById(sectionId)
-      section?.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'))
-      section?.scrollIntoView()
-    })
-    return () => window.cancelAnimationFrame(frame)
-  }, [])
-
   return (
-    <>
-      <a className="skip-link" href="#main-content">Skip to main content</a>
-      {showIntro && <IntroGateway onComplete={() => setShowIntro(false)} />}
-      <ScrollProgress />
-      <Navigation />
-      <main id="main-content">
-        <Hero />
-        <Manifesto />
-        <Programs />
-        <Events />
-        <People />
-        <ContactFooter />
-      </main>
-    </>
+    <Suspense fallback={<div className="page-loader" role="status"><img src="/brand/voe-seal.webp" alt="" /><span>Loading VOE</span></div>}>
+      <Routes>
+        <Route element={<SiteLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="wings" element={<WingsPage />} />
+          <Route path="events" element={<EventsPage />} />
+          <Route path="team" element={<TeamPage />} />
+          <Route path="join" element={<JoinPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   )
 }
 
